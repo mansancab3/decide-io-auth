@@ -1,0 +1,22 @@
+# <Tipo> Tipo de commit. <Asunto> Resumen del commit. (Max 50 caracteres)
+# Ejemplo: FIX. Solución incidencia #21
+
+
+# Explicar porque se ha realizado el cambio:
+# |<----  Explicación de porque el cambio realizado es necesario. ¿qué? ¿por qué? ¿dónde? ¿cuándo?. 
+# Intenta crear párrafos cortos y concisos (80 ~ 120 caracteres por párrafo).  ---->|
+
+# Proporciona enlaces o referencias que puedan ayudar a contextualizar el commit.
+# Ejemplo: Incidencia #21
+# Ejemplo2: tarea con nombre "..." de Trello.
+
+
+# --- FIN DEL COMMIT ---
+# los Tipos pueden ser:
+#    FEAT     (new feature)
+#    FIX      (bug fix)
+#    REFACTOR (refactoring production code)
+#    STYLE    (formatting, missing semi colons, etc; no code change)
+#    DOCS     (changes to documentation)
+#    TEST     (adding or refactoring tests; no production code change)
+# --------------------
