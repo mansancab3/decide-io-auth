@@ -17,7 +17,9 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_swagger.views import get_swagger_view
-from django.conf.urls import include, url
+from django.conf.urls import url, include
+from django_facebook import *
+
 
 
 
@@ -27,6 +29,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('doc/', schema_view),
     url(r'^accounts/', include('allauth.urls')),
+   # url(r'^facebook/', include('django_facebook.urls')),
+   url('', include('social_django.urls', namespace='social')),
 
 ]
 
