@@ -1,10 +1,13 @@
+from django.http.response import HttpResponseRedirect
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import ObjectDoesNotExist
-
+from .forms import UserCreationForm
 from .serializers import UserSerializer
+from django.shortcuts import render
+
 
 
 class GetUserView(APIView):
@@ -24,3 +27,12 @@ class LogoutView(APIView):
             pass
 
         return Response({})
+
+def Inicio(request):
+    formulario = UserCreationForm(request.POST or None)
+    if formulario.is_valid():
+        formulario.save()
+        return HttpResponseRedirect('/admin')
+    else:
+        formulario =UserCreationForm()
+    return render(request,'inicio.html',{"formUser":formulario})

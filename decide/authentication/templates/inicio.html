@@ -1,0 +1,6 @@
+{% block contenido %}
+    <form id='formUser' method='post' action=''>{% csrf_token %}
+        {{formUser.as_p}}
+        <p><input type='submit' value='Registrarse'/></p>
+    </form>
+{% endblock %}
