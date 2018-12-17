@@ -59,10 +59,6 @@ REST_FRAMEWORK = {
     )
 }
 
-BASEURL = 'https://decide-io-auth.herokuapp.com'
-
-APIS = {}
-
 AUTHENTICATION_BACKENDS = [
     'base.backends.AuthBackend',
     'django_facebook.auth_backends.FacebookBackend' , 
@@ -212,7 +208,6 @@ AUTHENTICATION_BACKENDS = [
 SOCIAL_AUTH_FACEBOOK_KEY = '286258288689090'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'f728e71cd193f6896942bb5b693be4d7'
 
-import django_heroku
-django_heroku.settings(locals())
+LOGIN_REDIRECT_URL = '/shdjhd'
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
