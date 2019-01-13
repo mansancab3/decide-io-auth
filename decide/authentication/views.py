@@ -1,14 +1,13 @@
-from django.http.response import HttpResponseRedirect
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import ObjectDoesNotExist
-from .forms import UserCreationForm
-from .serializers import UserSerializer
 from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect
 
-
+from .serializers import UserSerializer
+from .forms import ProfileForm,UserForm
 
 class GetUserView(APIView):
     def post(self, request):
@@ -28,11 +27,17 @@ class LogoutView(APIView):
 
         return Response({})
 
-def Inicio(request):
-    formulario = UserCreationForm(request.POST or None)
-    if formulario.is_valid():
-        formulario.save()
-        return HttpResponseRedirect('/admin')
+def NuevoUsuario(request):
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+        	user_form.save()
+        	profile_form.save()
+        	return HttpResponseRedirect('/admin')
     else:
-        formulario =UserCreationForm()
-    return render(request,'inicio.html',{"formUser":formulario})
+        user_form = UserForm(instance=request.user)
+        profile_form = ProfileForm(instance=request.user.profile)
+
+    return render(request, 'crearUsuario.html', {"formUser":user_form,'profileForm': profile_form})
+

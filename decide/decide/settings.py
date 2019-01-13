@@ -205,6 +205,8 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
+AUTH_PROFILE_MODULE = 'authentication.Profile'
+
 SOCIAL_AUTH_FACEBOOK_KEY = '286258288689090'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'f728e71cd193f6896942bb5b693be4d7'
 
