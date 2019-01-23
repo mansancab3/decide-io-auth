@@ -27,7 +27,7 @@ class LogoutView(APIView):
 
         return Response({})
 
-def NuevoUsuario(request):
+def EditUser(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = ProfileForm(request.POST, instance=request.user.profile)
@@ -39,5 +39,5 @@ def NuevoUsuario(request):
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
 
-    return render(request, 'crearUsuario.html', {"formUser":user_form,'profileForm': profile_form})
+    return render(request, 'editUser.html', {"userForm":user_form,'profileForm': profile_form})
 

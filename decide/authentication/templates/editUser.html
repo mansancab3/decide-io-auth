@@ -1,0 +1,8 @@
+<form method="post">
+<h1>Aplicacion DECIDE-IÓ</h1>
+<p>Cambiar datos del usuario</p>
+  {% csrf_token %}
+  {{ userForm.as_p }}
+  {{ profileForm.as_p }}
+  <button type="submit">Save changes</button>
+</form>
