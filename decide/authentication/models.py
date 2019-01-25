@@ -10,7 +10,7 @@ class Profile(models.Model):
         ('Mujer', 'Mujer'),
    )
    user = models.OneToOneField(User, on_delete=models.CASCADE)
-   sex = models.TextField(max_length=500, choices=SEX_CHOICES, default='Hombre')
+   sex = models.CharField(max_length=500, choices=SEX_CHOICES, default='Hombre')
    location = models.CharField(max_length=30, blank=True)
    birth_date = models.DateField(null=True, blank=True)
 
