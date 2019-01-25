@@ -23,6 +23,7 @@ class FormSignUp(UserCreationForm):
     first_name = forms.CharField(max_length=140, required=True)
     last_name = forms.CharField(max_length=140, required=False)
     email = forms.EmailField(required=True)
+    sex=forms.ChoiceField(choices=SEX_CHOICES)
     location = forms.CharField(max_length=140, required=False)
     birth_date = forms.DateField (required=False)
 

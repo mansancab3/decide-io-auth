@@ -1,11 +1,14 @@
-{% block title %}
-Registrate{
-% endblock %}
+{% block title %}Registrate{% endblock %}
 
 {% block content %}
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
+        
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <div class="g-recaptcha" data-sitekey="6Lfly4wUAAAAAHTgxta1Yii1Pr87aoEOoWv_I9GX"></div>
+        
         <input type="submit" name="submit">
+        
     </form>    
 {% endblock content %}

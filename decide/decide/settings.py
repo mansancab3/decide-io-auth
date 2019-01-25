@@ -214,3 +214,13 @@ LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/authentication/editUser'
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
+
+#Variables necesarias para que mande correo de confirmacion
+EMAIL_HOST='smtp.live.com'
+EMAIL_HOST_USER= 'decideioauth@hotmail.com'
+EMAIL_HOST_PASSWORD= 'pepibami1'
+EMAIL_PORT= 587
+EMAIL_USE_TLS= True
+
+
+

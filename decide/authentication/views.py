@@ -13,6 +13,7 @@ from django.contrib.auth.views import LoginView,LogoutView
 
 from .serializers import UserSerializer
 from .forms import ProfileForm,UserForm,FormSignUp
+from django.core.mail import send_mail
 
 
 class GetUserView(APIView):
@@ -56,11 +57,14 @@ class CreateUser(CreateView):
 
     def form_valid(self, form):
         form.save()
+        
 		#Una vez nos registramos automaticamentes nos logeamos y entramos en nuestra vista de usuario
         usuario = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password1')
         usuario = authenticate(username=usuario, password=password)
         login(self.request, usuario)
+        email = form.cleaned_data.get('email')
+        send_mail('Registro app Decide','Se ha registrado con exito en la aplicacion Decide-IO. A partir de ahora podrás votar en todas nuestras votaciones. Si usted no se ha registrado contacte con el correo que le ha enviado este mensaje','decideioauth@hotmail.com',[email])
         return redirect('/')
 
 class LoginUser(LoginView):
