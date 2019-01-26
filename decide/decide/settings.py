@@ -222,5 +222,6 @@ EMAIL_HOST_PASSWORD= 'pepibami1'
 EMAIL_PORT= 587
 EMAIL_USE_TLS= True
 
-
+#Key privada de google captcha
+GOOGLE_RECAPTCHA_SECRET_KEY = '6Lfly4wUAAAAANwEGC6WImTeZqQ74YZxP_-eA8ri'
 

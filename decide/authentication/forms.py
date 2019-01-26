@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User, Profile
+from .models import Profile
+from django.contrib.auth.models import User
+
 
 #Formulario para editar usuario existentes
 class UserForm(forms.ModelForm):
@@ -33,7 +35,8 @@ class FormSignUp(UserCreationForm):
             'username',
             'first_name',
             'last_name',
-            'email',   
+            'email',
+            'sex',   
 	        'location',
 	        'birth_date',
             'password1',
