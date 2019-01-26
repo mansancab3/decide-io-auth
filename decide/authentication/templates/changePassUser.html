@@ -1,0 +1,15 @@
+{% block title %}Cambiar Password{% endblock %}
+
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif %}      
+        <input type="submit" name="submit">
+        
+    </form>    
+{% endblock content %}
