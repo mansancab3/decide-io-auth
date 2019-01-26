@@ -11,12 +11,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.views import LoginView,LogoutView
 from django.contrib.auth.models import User
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 import json
 import requests
 from django.conf import settings
 from django.contrib import messages
-
-
 from .serializers import UserSerializer
 from .forms import ProfileForm,UserForm,FormSignUp
 from django.core.mail import send_mail
@@ -55,6 +55,20 @@ def EditUser(request):
         profile_form = ProfileForm(instance=request.user.profile)
 
     return render(request, 'editUser.html', {"userForm":user_form,'profileForm': profile_form})
+
+def ChangePassUser(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user) 
+            messages.success(request, 'Su password se ha modificado correctamente')
+            return redirect('/admin')
+        else:
+            messages.error(request, 'Ha ocurrido un error a la hora de cambiar la password, por favor reviselo')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'changePassUser.html', {'form': form})
 
 def UseCapcha(request):
     recaptcha_response = request.POST.get('g-recaptcha-response')
