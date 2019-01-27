@@ -88,11 +88,10 @@ SOCIAL_URL_REDIRECT = '/admin/login'
 LOGIN_REDIRECT_URL = '/admin/login'
 LOGOUT_REDIRECT_URL = '/accounts/login'
 
-#LOGIN_REDIRECT_URL = '/admin/b'
+#LOGIN_URL = '/login'
+#LOGIN_REDIRECT_URL = '/authentication/editUser'
 
 
-#LOGIN_REDIRECT_URL = '/authentication/obtain_auth_token_rrss/'
-#LOGIN_URL = '/auth/login/google-oauth2/'
 
 
 
@@ -277,8 +276,7 @@ AUTH_PROFILE_MODULE = 'authentication.Profile'
 SOCIAL_AUTH_FACEBOOK_KEY = '286258288689090'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'f728e71cd193f6896942bb5b693be4d7'
 
-LOGIN_URL = '/login'
-LOGIN_REDIRECT_URL = '/authentication/editUser'
+
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
 
