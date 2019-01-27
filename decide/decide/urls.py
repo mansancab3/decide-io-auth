@@ -27,7 +27,7 @@ schema_view = get_swagger_view(title='Decide API')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('doc/', schema_view),
-    url(r'^accounts/', include('allauth.urls')),
+    url('accounts/', include('allauth.urls')),
    # url(r'^facebook/', include('django_facebook.urls')),
    url('', include('social_django.urls', namespace='social')),
 
