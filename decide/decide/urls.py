@@ -1,5 +1,4 @@
 """decide URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
 Examples:
@@ -28,7 +27,7 @@ schema_view = get_swagger_view(title='Decide API')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('doc/', schema_view),
-    url(r'^accounts/', include('allauth.urls')),
+    url('accounts/', include('allauth.urls')),
    # url(r'^facebook/', include('django_facebook.urls')),
    url('', include('social_django.urls', namespace='social')),
 
@@ -37,4 +36,4 @@ urlpatterns = [
 for module in settings.MODULES:
     urlpatterns += [
         path('{}/'.format(module), include('{}.urls'.format(module)))
-    ]
+]
