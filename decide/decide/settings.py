@@ -81,9 +81,18 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/home/'
-SOCIAL_AUTH_LOGIN_URL = '/'
-SOCIAL_URL_REDIRECT = '/'
-LOGIN_REDIRECT_URL = '/'
+#SOCIAL_AUTH_LOGOUT_REDIRECT_URL = '/accounts/logout'
+
+SOCIAL_AUTH_LOGIN_URL = '/accounts/google/login/callback/'
+SOCIAL_URL_REDIRECT = '/admin/login'
+LOGIN_REDIRECT_URL = '/admin/login'
+LOGOUT_REDIRECT_URL = '/accounts/login'
+
+#LOGIN_REDIRECT_URL = '/admin/b'
+
+
+#LOGIN_REDIRECT_URL = '/authentication/obtain_auth_token_rrss/'
+#LOGIN_URL = '/auth/login/google-oauth2/'
 
 
 
@@ -266,6 +275,5 @@ AUTHENTICATION_BACKENDS = [
 SOCIAL_AUTH_FACEBOOK_KEY = '286258288689090'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'f728e71cd193f6896942bb5b693be4d7'
 
-LOGIN_REDIRECT_URL = '/admin/b'
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
