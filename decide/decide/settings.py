@@ -272,8 +272,23 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
+AUTH_PROFILE_MODULE = 'authentication.Profile'
+
 SOCIAL_AUTH_FACEBOOK_KEY = '286258288689090'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'f728e71cd193f6896942bb5b693be4d7'
 
+LOGIN_URL = '/login'
+LOGIN_REDIRECT_URL = '/authentication/editUser'
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
+
+#Variables necesarias para que mande correo de confirmacion
+EMAIL_HOST='smtp.live.com'
+EMAIL_HOST_USER= 'decideioauth@hotmail.com'
+EMAIL_HOST_PASSWORD= 'pepibami1'
+EMAIL_PORT= 587
+EMAIL_USE_TLS= True
+
+#Key privada de google captcha
+GOOGLE_RECAPTCHA_SECRET_KEY = '6Lfly4wUAAAAANwEGC6WImTeZqQ74YZxP_-eA8ri'
+
