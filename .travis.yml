@@ -1,7 +1,6 @@
 language: python 
 python: 
 - "3.6"
-- "2.7"
 - "3.5"
 services:
 - postgresql
@@ -19,7 +18,7 @@ before_script:
 - psql -c "create database decide owner decide"
 - python manage.py migrate
 script: 
-- python manage.py test
+- python manage.py test authentication
 addons:
   postgresql: "9.6"
   
