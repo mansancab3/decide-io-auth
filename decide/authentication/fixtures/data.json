@@ -1,0 +1,20 @@
+[
+    {
+      "model": "socialaccount.socialapp",
+      "pk": 5,
+      "fields": {
+        "provider": "google",
+        "name": "Google Login",
+        "client_id": "1096255128002-nbae62sdmoo0v19ugua198ou30coht1s.apps.googleusercontent.com",
+        "secret": "--qvDJeFXlaKDTWtO2felsXu"
+      }
+    },
+    {
+      "model": "socialaccount.socialapp_sites",
+      "pk": 5,
+      "fields": {
+        "socialapp_id": 5,
+        "site_id": 1
+      }
+    }
+  ]
