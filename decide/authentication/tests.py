@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 
 from base import mods
-
+import urllib.request, urllib.error
 
 class AuthTestCase(APITestCase):
 
@@ -80,3 +80,13 @@ class AuthTestCase(APITestCase):
 
         self.assertEqual(Token.objects.filter(user__username='voter1').count(), 0)
 
+        #Test login facebook and google
+
+
+    def test_request_googleLogin(self):
+        try:
+            request = urllib.request.urlopen('https://accounts.google.com/signin/oauth/oauthchooseaccount?client_id=1096255128002-nbae62sdmoo0v19ugua198ou30coht1s.apps.googleusercontent.com&as=CdsB_y45brgqlnQURWSiQg&destination=http%3A%2F%2Flocalhost%3A8000&approval_state=!ChQyWDVxdU9lcGs2c3d1VVRubEFwVRIfMDIteU9qNTY5cThRMEVBN1JaNXdOM005V3dZVmlSWQ%E2%88%99APNbktkAAAAAXE96j6wpjQrJA5CJm4K7si5nr3IfoMe8&oauthgdpr=1&xsrfsig=ChkAeAh8TyABjjbCCFJMcA-mTBaDlLhdg-rtEg5hcHByb3ZhbF9zdGF0ZRILZGVzdGluYXRpb24SBXNvYWN1Eg9vYXV0aHJpc2t5c2NvcGU&flowName=GeneralOAuthFlow')
+        except urllib.error.HTTPError as errors:
+            self.assertEqual(errors.code, 400) 
+            self.assertEqual(errors.code, 403) 
+            self.assertEqual(errors.code, 404) 
