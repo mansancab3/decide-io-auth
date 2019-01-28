@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'social_django',
+    'crispy_forms',
 
     #Authentification with Twitter and Google
     'allauth.socialaccount.providers.twitter',
@@ -55,13 +56,15 @@ INSTALLED_APPS = [
 
 
     #FInAuthentification with Twitter and Google
-]  
+]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SITE_ID=1
 
 ACCOUNT_LOGOUT_ON_GET = True
 
-REST_FRAMEWORK = { 
+REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.TokenAuthentication',
@@ -70,7 +73,7 @@ REST_FRAMEWORK = {
 
 AUTHENTICATION_BACKENDS = [
     'base.backends.AuthBackend',
-    'django_facebook.auth_backends.FacebookBackend' , 
+    'django_facebook.auth_backends.FacebookBackend' ,
     'django.contrib.auth.backends.ModelBackend' ,
     #ojcndjcnsdjcsndjcnsjscjsdn
     'allauth.account.auth_backends.AuthenticationBackend',
@@ -287,4 +290,3 @@ EMAIL_USE_TLS= True
 
 #Key privada de google captcha
 GOOGLE_RECAPTCHA_SECRET_KEY = '6Lfly4wUAAAAANwEGC6WImTeZqQ74YZxP_-eA8ri'
-

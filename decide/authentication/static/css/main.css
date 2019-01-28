@@ -541,3 +541,13 @@ iframe {
     }
 
     .g-recaptcha {}
+
+    .copyleft {
+      position: relative;
+    top: -5px;
+    display:inline-block;
+    transform: rotate(180deg);
+    }
+    .copyleft::after {
+  content: "\00a9";
+}
