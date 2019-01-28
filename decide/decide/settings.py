@@ -88,7 +88,7 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/home/'
 
 SOCIAL_AUTH_LOGIN_URL = '/accounts/google/login/callback/'
 SOCIAL_URL_REDIRECT = '/admin/login'
-LOGIN_REDIRECT_URL = '/admin/login'
+LOGIN_REDIRECT_URL = '/index' #Cambiar para página logeada.
 LOGOUT_REDIRECT_URL = '/accounts/login'
 
 #LOGIN_URL = '/login'
@@ -133,7 +133,8 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1096255128002-nbae62sdmoo0v19ugua198ou30coht1s.
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '--qvDJeFXlaKDTWtO2felsXu'
 
 
-BASEURL = 'http://localhost:8000'
+#BASEURL = 'http://localhost:8000'
+BASEURL = 'https://decide-io-auth.herokuapp.com/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
