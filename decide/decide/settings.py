@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^##ydkswfu0+=ofw0l#$kv^8n)0$i(qd&d&ol#p9!b$8*5%j1+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -49,10 +49,19 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'social_django',
 
-]
+    #Authentification with Twitter and Google
+    'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.google',
+
+
+    #FInAuthentification with Twitter and Google
+]  
+
 SITE_ID=1
 
-REST_FRAMEWORK = {
+ACCOUNT_LOGOUT_ON_GET = True
+
+REST_FRAMEWORK = { 
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.TokenAuthentication',
@@ -63,7 +72,28 @@ AUTHENTICATION_BACKENDS = [
     'base.backends.AuthBackend',
     'django_facebook.auth_backends.FacebookBackend' , 
     'django.contrib.auth.backends.ModelBackend' ,
+    #ojcndjcnsdjcsndjcnsjscjsdn
+    'allauth.account.auth_backends.AuthenticationBackend',
+    'social_core.backends.twitter.TwitterOAuth',
+   #  'social.backends.twitter.TwitterOAuth',
+
+    #sojcndocsdosnocnsdocnsd
 ]
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/home/'
+#SOCIAL_AUTH_LOGOUT_REDIRECT_URL = '/accounts/logout'
+
+SOCIAL_AUTH_LOGIN_URL = '/accounts/google/login/callback/'
+SOCIAL_URL_REDIRECT = '/admin/login'
+LOGIN_REDIRECT_URL = '/admin/login'
+LOGOUT_REDIRECT_URL = '/accounts/login'
+
+#LOGIN_URL = '/login'
+#LOGIN_REDIRECT_URL = '/authentication/editUser'
+
+
+
+
 
 SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.social_details',
@@ -92,6 +122,14 @@ MODULES = [
     'voting',
 ]
 
+SOCIAL_AUTH_TWITTER_KEY = 'NaY7zW7Q9pZZuH0XOkgLBacem'
+SOCIAL_AUTH_TWITTER_SECRET = 'xvIQeBIfaH2SJ3TxiN1UiMdLI1GKDetp9weGUVWA1XQsGHlwr9'
+
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1096255128002-nbae62sdmoo0v19ugua198ou30coht1s.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '--qvDJeFXlaKDTWtO2felsXu'
+
+
 BASEURL = 'http://localhost:8000'
 
 MIDDLEWARE = [
@@ -102,9 +140,33 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+#sichsdifbijcbsijcsncjnsdcps
+   # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
+
+#iuchsdcbsducbsdicbspibspdicds
+
 ]
 
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.contrib.messages.context_processors.messages',
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
+)
+
+
 ROOT_URLCONF = 'decide.urls'
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'authentication/templates'),
+)
 
 TEMPLATES = [
     {
@@ -122,6 +184,10 @@ TEMPLATES = [
                 'django_facebook.context_processors.facebook',
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
+                #scscfcsvfdvdfvdfvdfvdfvdfv
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+                #vdfvdvdfvdfvdvdfvdf
 
             ],
         },
@@ -207,11 +273,8 @@ AUTHENTICATION_BACKENDS = [
 
 AUTH_PROFILE_MODULE = 'authentication.Profile'
 
-SOCIAL_AUTH_FACEBOOK_KEY = '286258288689090'
-SOCIAL_AUTH_FACEBOOK_SECRET = 'f728e71cd193f6896942bb5b693be4d7'
 
-LOGIN_URL = '/login'
-LOGIN_REDIRECT_URL = '/authentication/editUser'
+
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
 
