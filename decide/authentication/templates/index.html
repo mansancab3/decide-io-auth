@@ -1,0 +1,24 @@
+{% extends 'base_extend.html' %}
+{% load static %}
+
+
+{% block body %}
+</br>
+<img src="{% static 'images/decide.jpg' %}" alt="Decide" height="400" width="400" class="center"/>
+
+</br>
+
+<div class="container-login100-decide-btn m-t-17">
+
+	<button value="Log in" onclick="document.location.href='/authentication/loginUser'" class="btn-google center" style="width:10%" >
+		Log In
+	</button>
+
+</br>
+	<button value="Sign in" onclick="document.location.href='/authentication/createUser'" class="btn-google center" style="width:10%">
+		Sign In
+	</button>
+
+</div>
+
+{% endblock %}

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'social_django',
+    'crispy_forms',
 
     #Authentification with Twitter and Google
     'allauth.socialaccount.providers.twitter',
@@ -55,13 +56,15 @@ INSTALLED_APPS = [
 
 
     #FInAuthentification with Twitter and Google
-]  
+]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SITE_ID=1
 
 ACCOUNT_LOGOUT_ON_GET = True
 
-REST_FRAMEWORK = { 
+REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.TokenAuthentication',
@@ -70,7 +73,7 @@ REST_FRAMEWORK = {
 
 AUTHENTICATION_BACKENDS = [
     'base.backends.AuthBackend',
-    'django_facebook.auth_backends.FacebookBackend' , 
+    'django_facebook.auth_backends.FacebookBackend' ,
     'django.contrib.auth.backends.ModelBackend' ,
     #ojcndjcnsdjcsndjcnsjscjsdn
     'allauth.account.auth_backends.AuthenticationBackend',
@@ -85,7 +88,7 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/home/'
 
 SOCIAL_AUTH_LOGIN_URL = '/accounts/google/login/callback/'
 SOCIAL_URL_REDIRECT = '/admin/login'
-LOGIN_REDIRECT_URL = '/admin/login'
+LOGIN_REDIRECT_URL = '/index' #Cambiar para página logeada.
 LOGOUT_REDIRECT_URL = '/accounts/login'
 
 #LOGIN_URL = '/login'
@@ -130,7 +133,8 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1096255128002-nbae62sdmoo0v19ugua198ou30coht1s.
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '--qvDJeFXlaKDTWtO2felsXu'
 
 
-BASEURL = 'http://localhost:8000'
+#BASEURL = 'http://localhost:8000'
+BASEURL = 'https://decide-io-auth.herokuapp.com/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -287,4 +291,3 @@ EMAIL_USE_TLS= True
 
 #Key privada de google captcha
 GOOGLE_RECAPTCHA_SECRET_KEY = '6Lfly4wUAAAAANwEGC6WImTeZqQ74YZxP_-eA8ri'
-
