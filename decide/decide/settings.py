@@ -278,7 +278,10 @@ AUTHENTICATION_BACKENDS = [
 AUTH_PROFILE_MODULE = 'authentication.Profile'
 
 
+APIS = {}
 
+import django_heroku
+django_heroku.settings(locals())
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
 
