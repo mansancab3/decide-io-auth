@@ -1,7 +1,16 @@
+{%extends 'base_extend.html'%}
+{% load static %}
+{% block body %}
+
+
 <form method="post">
 <h1>Aplicacion DECIDE-IÓ</h1>
 <p>Login</p>
   {% csrf_token %}
-  {{ form.as_p }}
+  {{ form.as_p}}
   <button type="submit">Login</button>
 </form>
+
+
+
+{% endblock %}

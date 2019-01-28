@@ -1,6 +1,8 @@
+{% extends 'base_extend.html' %}
+
 {% block title %}Registrate{% endblock %}
 
-{% block content %}
+{% block body %}
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
@@ -11,8 +13,10 @@
         {% endif %}
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <div class="g-recaptcha" data-sitekey="6Lfly4wUAAAAAHTgxta1Yii1Pr87aoEOoWv_I9GX"></div>
-        
+
         <input type="submit" name="submit">
-        
-    </form>    
-{% endblock content %}
+
+    </form>
+
+
+{% endblock %}
