@@ -4,6 +4,7 @@ from rest_framework.test import APITestCase
 
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
+import urllib.request, urllib.error
 
 from base import mods
 
@@ -79,3 +80,11 @@ class AuthTestCase(APITestCase):
         self.assertEqual(response.status_code, 200)
 
         self.assertEqual(Token.objects.filter(user__username='voter1').count(), 0)
+
+    def test_request_facebook(self):
+        try:
+            request = urllib.request.urlopen('https://www.facebook.com/login.php?skip_api_login=1&api_key=803345486672646&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv3.2%2Fdialog%2Foauth%3Fredirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8000%252Faccounts%252Ffacebook%252Flogin%252Fcallback%252F%26state%3DneYAaUWIcobc%26scope%26response_type%3Dcode%26client_id%3D803345486672646%26ret%3Dlogin%26logger_id%3D2ce173ff-0037-d09b-ce8f-6816a7547584&cancel_url=http%3A%2F%2Flocalhost%3A8000%2Faccounts%2Ffacebook%2Flogin%2Fcallback%2F%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DneYAaUWIcobc%23_%3D_&display=page&locale=es_ES&logger_id=2ce173ff-0037-d09b-ce8f-6816a7547584')
+        except urllib.error.HTTPError as err:
+            self.assertEqual(errors.code, 400) 
+            self.assertEqual(errors.code, 403) 
+            self.assertEqual(errors.code, 404)
