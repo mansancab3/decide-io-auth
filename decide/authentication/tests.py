@@ -4,13 +4,12 @@ from rest_framework.test import APITestCase
 
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
-<<<<<<< HEAD
+
 import urllib.request, urllib.error
 
-=======
+
 from .forms import FormSignUp,UserForm,ProfileForm
 from django.contrib.auth import authenticate
->>>>>>> origin/Lora
 from base import mods
 
 
@@ -137,4 +136,4 @@ class AuthTestCase(APITestCase):
         self.assertEqual(form.is_valid(),False)
 
 
->>>>>>> origin/Lora
+
