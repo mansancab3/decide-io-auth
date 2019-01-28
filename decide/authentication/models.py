@@ -6,11 +6,12 @@ from django.dispatch import receiver
 # Create your models here.
 class Profile(models.Model):
    SEX_CHOICES = (
-        ('Hombre', 'Hombre'),
-        ('Mujer', 'Mujer'),
+        ('MAN', 'MAN'),
+        ('WOMAN', 'WOMAN'),
+        ('DK/NA', 'DK/NA')
    )
    user = models.OneToOneField(User, on_delete=models.CASCADE)
-   sex = models.CharField(max_length=500, choices=SEX_CHOICES, default='Hombre')
+   sex = models.CharField(max_length=500, choices=SEX_CHOICES, default='MAN')
    location = models.CharField(max_length=30, blank=True)
    birth_date = models.DateField(null=True, blank=True)
 
