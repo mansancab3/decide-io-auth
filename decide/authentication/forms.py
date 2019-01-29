@@ -19,8 +19,8 @@ class ProfileForm(forms.ModelForm):
 #Formulario para crear nuevos usuarios
 class FormSignUp(UserCreationForm):
     SEX_CHOICES = (
-        ('MAN', 'MAN'),
-        ('WOMAN', 'WOMAN'),
+        ('Man', 'Man'),
+        ('Woman', 'Woman'),
         ('DK/NA', 'DK/NA')
     )
     

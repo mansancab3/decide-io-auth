@@ -6,8 +6,8 @@ from django.dispatch import receiver
 # Create your models here.
 class Profile(models.Model):
    SEX_CHOICES = (
-        ('MAN', 'MAN'),
-        ('WOMAN', 'WOMAN'),
+        ('Man', 'Man'),
+        ('Woman', 'Woman'),
         ('DK/NA', 'DK/NA')
    )
    user = models.OneToOneField(User, on_delete=models.CASCADE)

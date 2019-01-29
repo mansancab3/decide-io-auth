@@ -23,6 +23,8 @@ from .serializers import UserSerializer
 from .forms import ProfileForm,UserForm,FormSignUp
 from django.core.mail import send_mail
 from django.views.generic import TemplateView
+from django.contrib.auth import logout
+
 
 class GetUserView(APIView):
     def post(self, request):
@@ -100,7 +102,7 @@ def CreateUser(request):
 
                 #Se manda correo para informar de que se ha registrado en Decide
                 email = form.cleaned_data.get('email')
-                send_mail('Registro app Decide','Se ha registrado con exito en la aplicacion Decide-IO. A partir de ahora podrás votar en todas nuestras votaciones. Si usted no se ha registrado contacte con el correo que le ha enviado este mensaje','decideioauth@hotmail.com',[email])
+                send_mail('Record app Decide','Successfully registered in the Decide-IO application. From now on you can vote in all our votes. If you have not registered, contact the email that sent you this message','decideioauth@hotmail.com',[email])
                 ################################################################
 
                 password = form.cleaned_data.get('password1')
@@ -108,8 +110,8 @@ def CreateUser(request):
                 login(request, usuario)
                 return HttpResponseRedirect('/authentication/editUser')
             else:
-                print("Captcha no superado, intentalo de nuevo")
-                messages.add_message(request, messages.ERROR, 'Captcha no superado, intentalo de nuevo')
+                print("Captcha not passed, try again")
+                messages.add_message(request, messages.ERROR, 'Captcha not passed, try again')
     else:
         form = FormSignUp()
 
@@ -119,8 +121,9 @@ def CreateUser(request):
 class LoginUser(LoginView):
     template_name = 'login.html'
 
-class LogoutUser(LogoutView):
-    pass
+def LogoutUser(request):
+    logout(request)
+    return redirect('/authentication/loginUser')
 
 class IndexPage(TemplateView):
     template_name = 'index.html'
