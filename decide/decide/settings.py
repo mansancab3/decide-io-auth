@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import django_heroku
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -134,7 +136,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '--qvDJeFXlaKDTWtO2felsXu'
 
 
 #BASEURL = 'http://localhost:8000'
-BASEURL = 'https://decide-io-auth.herokuapp.com/'
+BASEURL = 'https://decide-io-authentication.herokuapp.com'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -281,6 +283,7 @@ AUTH_PROFILE_MODULE = 'authentication.Profile'
 
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
+django_heroku.settings(locals())
 
 #Variables necesarias para que mande correo de confirmacion
 EMAIL_HOST='smtp.live.com'
@@ -291,3 +294,4 @@ EMAIL_USE_TLS= True
 
 #Key privada de google captcha
 GOOGLE_RECAPTCHA_SECRET_KEY = '6Lfly4wUAAAAANwEGC6WImTeZqQ74YZxP_-eA8ri'
+APIS = {}
