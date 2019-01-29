@@ -11,7 +11,7 @@ class Profile(models.Model):
         ('DK/NA', 'DK/NA')
    )
    user = models.OneToOneField(User, on_delete=models.CASCADE)
-   sex = models.CharField(max_length=500, choices=SEX_CHOICES, default='MAN')
+   sex = models.CharField(max_length=500, choices=SEX_CHOICES, default='DK/NA')
    location = models.CharField(max_length=30, blank=True)
    birth_date = models.DateField(null=True, blank=True)
 
