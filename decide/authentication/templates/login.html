@@ -44,7 +44,11 @@
         </div>
 
         <div class="container-login100-form-btn m-t-17">
-
+          {% if messages %}
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+          {% endif %}
           <button type="submit"class="login100-form-btn">
             {% csrf_token %}
             Log In
