@@ -1,4 +1,4 @@
-{% extends 'base_extend.html' %}
+{% extends 'base_form.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
 
@@ -18,14 +18,8 @@
 
     </form-->
 
-</br>
-</br>
-<br>
+</br></br><br></br>
 
-
-
-
-</br>
 <main class="my-form">
   <div class="cotainer">
     <div class="row justify-content-center">
@@ -36,37 +30,26 @@
             <form name="my-form" method="post">
               {% csrf_token %}
               <div class="form-group row">
-                <label for="username" class=" col-form-label text-md-right"></label>
-                <div class="col-md-6">
-                  <!--input type="text" id="username" class="form-control" name="username"-->
+                <div class="col-md-6 wrap-input10">
                   {{ form.username|as_crispy_field }}
                 </div>
               </div>
-
               <div class="form-group row">
-                <label for="firstname" class=" col-form-label text-md-right"></label>
                 <div class="col-md-6">
-                  <!--input type="text" id="firstname" class="form-control" name="firstname"-->
                   {{ form.first_name|as_crispy_field }}
                 </div>
               </div>
-
               <div class="form-group row">
-                <label for="lastname" class=" col-form-label text-md-right"></label>
                 <div class="col-md-6">
-                  <!--input type="text" id="lastname" class="form-control" name="lastname"-->
                   {{ form.last_name|as_crispy_field }}
                 </div>
               </div>
-
               <div class="form-group row">
                 <label for="emailaddress" class=" col-form-label text-md-right"></label>
                 <div class="col-md-6">
-                  <!--input type="text" id="emailaddress" class="form-control" name="emailaddress"-->
                   {{ form.email|as_crispy_field }}
                 </div>
               </div>
-
               <div class="form-group row">
                 <label for="sex" class=" col-form-label text-md-right"></label>
                 <div class="col-md-6">
@@ -79,7 +62,6 @@
                   </select-->
                 </div>
               </div>
-
               <div class="form-group row">
                 <label for="location" class=" col-form-label text-md-right"></label>
                 <div class="col-md-6">
@@ -87,31 +69,23 @@
                   {{ form.location|as_crispy_field }}
                 </div>
               </div>
-
               <div class="form-group row">
-                <label for="birtdate" class=" col-form-label text-md-right"></label>
                 <div class="col-md-6">
-                  <!--input type="text" id="birtdate" class="form-control"-->
                   {{ form.birth_date|as_crispy_field }}
                 </div>
               </div>
-
-
               <div class="form-group row">
-                <label for="password" class=" col-form-label text-md-right"></label>
                 <div class="col-md-6">
                   <!--input type="text" id="passwordC" class="form-control" name="password"-->
                   {{ form.password1|as_crispy_field }}
                 </div>
               </div>
               <div class="form-group row">
-                <label for="passwordC" class=" col-form-label text-md-right"></label>
                 <div class="col-md-6">
                   <!--input type="text" id="passwordC" class="form-control" name="passwordC"-->
                   {{ form.password2|as_crispy_field }}
                 </div>
               </div>
-
               {% if messages %}
                 {% for message in messages %}
                   {{ message }}
@@ -120,29 +94,20 @@
               <script src='https://www.google.com/recaptcha/api.js'></script>
               <div align="center" class="g-recaptcha" data-sitekey="6Lfly4wUAAAAAHTgxta1Yii1Pr87aoEOoWv_I9GX" style>
               </div>
-
-
-
               <div class="col-md-6 offset-md-4">
                 <button type="submit" class="login100-form-btn" style="width:25%">
                   Register
                 </button>
               </div>
-</form>
-
-
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </main>
 
-<br>
-<br>
-<br>
-<br>
+<br><br>
 
 
 {% endblock %}
