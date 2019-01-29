@@ -134,7 +134,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '--qvDJeFXlaKDTWtO2felsXu'
 
 
 #BASEURL = 'http://localhost:8000'
-BASEURL = 'https://decide-io-auth.herokuapp.com/'
+BASEURL = 'https://io-auth.herokuapp.com/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
