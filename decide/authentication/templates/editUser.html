@@ -1,8 +1,8 @@
-{% extends 'base_extend.html'%}
+{% extends 'base_form.html'%}
 {% load crispy_forms_tags %}
 {% load static %}
-
 {% block body %}
+
 <!--form method="post">
   <h1>Aplicacion DECIDE-IÓ</h1>
   <p>Cambiar datos del usuario</p>
@@ -11,12 +11,11 @@
   {{ profileForm.as_p }}
   {{ password_form.as_p }}
   <button type="submit">Guardar cambios</button>
-
 </form>
-<button onclick="window.location.href='/authentication/changePassUser'">Cambiar password</button>
--->
-</br>
-</br>
+<button onclick="window.location.href='/authentication/changePassUser'">Cambiar password</button>-->
+
+</br></br></br></br>
+
 <main class="my-form">
   <div class="cotainer">
     <div class="row justify-content-center">
@@ -27,74 +26,54 @@
             <form name="my-form" method="post">
               {% csrf_token %}
               <div class="form-group row">
-                <label for="first_name" class=" col-form-label text-md-right"></label>
                 <div class="col-md-6">
                   {{ userForm.first_name|as_crispy_field }}
                 </div>
               </div>
-
               <div class="form-group row">
-                <label for="lastname" class=" col-form-label text-md-right"></label>
                 <div class="col-md-6">
                   {{ userForm.last_name|as_crispy_field }}
-
                 </div>
               </div>
-
               <div class="form-group row">
-                <label for="emailaddress" class=" col-form-label text-md-right"></label>
                 <div class="col-md-6">
                   {{ userForm.email|as_crispy_field }}
                 </div>
               </div>
-
               <div class="form-group row">
-                <label for="sex" class=" col-form-label text-md-right"></label>
                 <div class="col-md-6">
                   {{profileForm.sex|as_crispy_field}}
                 </div>
               </div>
-
               <div class="form-group row">
-                <label for="location" class=" col-form-label text-md-right"></label>
                 <div class="col-md-6">
                   {{profileForm.location|as_crispy_field}}
-
                 </div>
               </div>
-
               <div class="form-group row">
-                <label for="birtdate" class=" col-form-label text-md-right"></label>
                 <div class="col-md-6">
                   {{profileForm.birth_date|as_crispy_field}}
-
                 </div>
               </div>
-
               <div>
-                <button  type="submit" class="login100-form-btn" style="width:20%;">
+                <button type="submit" class="login100-form-btn" style="width:20%;">
                   Save Changes
                 </button>
               </div>
-
             </form>
             <br>
             <div>
               <button onclick="window.location.href='/authentication/changePassUser'" class="login100-form-btn" style="width:20%;">
-
                 Edit Password
               </button>
-
             </div>
-
           </div>
         </div>
       </div>
-
     </div>
   </div>
-
 </main>
 
+<br><br>
 
 {% endblock %}
