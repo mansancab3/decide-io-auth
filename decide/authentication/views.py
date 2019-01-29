@@ -7,6 +7,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import CreateView
 from .models import Profile
+
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.views import LoginView,LogoutView
@@ -20,7 +22,7 @@ from django.contrib import messages
 from .serializers import UserSerializer
 from .forms import ProfileForm,UserForm,FormSignUp
 from django.core.mail import send_mail
-
+from django.views.generic import TemplateView
 
 class GetUserView(APIView):
     def post(self, request):
@@ -42,6 +44,7 @@ class LogoutView(APIView):
 
 
 #--------------------------Anadido por Decide-IO-Auth -----------------------------------
+
 def EditUser(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
@@ -61,7 +64,7 @@ def ChangePassUser(request):
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
-            update_session_auth_hash(request, user) 
+            update_session_auth_hash(request, user)
             messages.success(request, 'Su password se ha modificado correctamente')
             return redirect('/admin')
         else:
@@ -113,13 +116,11 @@ def CreateUser(request):
     return render(request, 'createUser.html', {"form":form})
 
 
-
-
 class LoginUser(LoginView):
     template_name = 'login.html'
 
 class LogoutUser(LogoutView):
     pass
 
-
-
+class IndexPage(TemplateView):
+    template_name = 'index.html'

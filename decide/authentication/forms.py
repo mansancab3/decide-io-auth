@@ -19,9 +19,11 @@ class ProfileForm(forms.ModelForm):
 #Formulario para crear nuevos usuarios
 class FormSignUp(UserCreationForm):
     SEX_CHOICES = (
-        ('Hombre', 'Hombre'),
-        ('Mujer', 'Mujer'),
+        ('MAN', 'MAN'),
+        ('WOMAN', 'WOMAN'),
+        ('DK/NA', 'DK/NA')
     )
+    
     first_name = forms.CharField(max_length=140, required=True)
     last_name = forms.CharField(max_length=140, required=False)
     email = forms.EmailField(required=True)
