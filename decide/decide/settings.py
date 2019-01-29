@@ -133,8 +133,8 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1096255128002-nbae62sdmoo0v19ugua198ou30coht1s.
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '--qvDJeFXlaKDTWtO2felsXu'
 
 
-#BASEURL = 'http://localhost:8000'
-BASEURL = 'https://io-auth.herokuapp.com/'
+BASEURL = 'http://localhost:8000'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -278,10 +278,6 @@ AUTHENTICATION_BACKENDS = [
 AUTH_PROFILE_MODULE = 'authentication.Profile'
 
 
-APIS = {}
-
-import django_heroku
-django_heroku.settings(locals())
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
 
