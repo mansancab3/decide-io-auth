@@ -87,7 +87,7 @@ textarea {
 }
 
 textarea:focus, input:focus {
-  border-color: transparent !important;
+  border-color: #9ACD32 !important;
 }
 
 input:focus::-webkit-input-placeholder {
@@ -333,8 +333,8 @@ iframe {
 .wrap-input100 {
   width: 100%;
   position: relative;
-  background-color: #f7f7f7;
-  border: 1px solid #e6e6e6;
+  background-color: transparent;
+  border: 1px solid transparent;
   border-radius: 10px;
 }
 
