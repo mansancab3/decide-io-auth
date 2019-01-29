@@ -52,7 +52,7 @@ def EditUser(request):
         if user_form.is_valid() and profile_form.is_valid():
         	user_form.save()
         	profile_form.save()
-        	return HttpResponseRedirect('/admin')
+        	return HttpResponseRedirect('/index')
     else:
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
@@ -66,7 +66,7 @@ def ChangePassUser(request):
             user = form.save()
             update_session_auth_hash(request, user)
             messages.success(request, 'Su password se ha modificado correctamente')
-            return redirect('/admin')
+            return redirect('/index')
         else:
             messages.error(request, 'Ha ocurrido un error a la hora de cambiar la password, por favor reviselo')
     else:

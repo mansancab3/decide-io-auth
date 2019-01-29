@@ -4077,10 +4077,13 @@ tbody.collapse.show {
   background-color: #1d2124;
 }
 
+
+
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background-color: #e9ecef;
+  background-color: #F8F9FA;
+  color: #F8F9FA;
   border-radius: 0.3rem;
 }
 

@@ -106,8 +106,15 @@
                 </div>
               </div>
 
+              {% if messages %}
+                {% for message in messages %}
+                  {{ message }}
+                {% endfor %}
+              {% endif %}
               <script src='https://www.google.com/recaptcha/api.js'></script>
-              <div align="center" class="g-recaptcha" data-sitekey="6Lfly4wUAAAAAHTgxta1Yii1Pr87aoEOoWv_I9GX" style></div>
+              <div align="center" class="g-recaptcha" data-sitekey="6Lfly4wUAAAAAHTgxta1Yii1Pr87aoEOoWv_I9GX" style>
+              </div>
+
 
 
               <div class="col-md-6 offset-md-4">
@@ -115,6 +122,7 @@
                   Register
                 </button>
               </div>
+</form>
 
 
           </div>
