@@ -101,7 +101,7 @@ class AuthTestCase(APITestCase):
             self.assertEqual(errors.code, 400) 
 
     def test_newUser(self):
-        data = {'username': 'username1', 'first_name': 'first_name1', 'last_name': 'last_name1','email': 'email1@gmail.com','sex': 'MAN','location': 'location1','birth_date': '2018-01-28','password1': 'testnew1', 'password2': 'testnew1'}
+        data = {'username': 'username1', 'first_name': 'first_name1', 'last_name': 'last_name1','email': 'email1@gmail.com','sex': 'Man','location': 'location1','birth_date': '2018-01-28','password1': 'testnew1', 'password2': 'testnew1'}
         response = self.client.post('/authentication/createUser/', data, format='json')
         #Comprobamos que llegamos a la  vista
         self.assertEqual(response.status_code, 200)
@@ -117,7 +117,7 @@ class AuthTestCase(APITestCase):
 
     def test_newUserRepeated(self):
         #Creamos el primer usuario
-        data = {'username': 'username1', 'first_name': 'first_name1', 'last_name': 'last_name1','email': 'email1@gmail.com','sex': 'MAN','location': 'location1','birth_date': '2018-01-28','password1': 'testnew1', 'password2': 'testnew1'}
+        data = {'username': 'username1', 'first_name': 'first_name1', 'last_name': 'last_name1','email': 'email1@gmail.com','sex': 'Man','location': 'location1','birth_date': '2018-01-28','password1': 'testnew1', 'password2': 'testnew1'}
         response = self.client.post('/authentication/createUser/', data, format='json')
         self.assertEqual(response.status_code, 200)
         form=FormSignUp(data)
@@ -126,7 +126,7 @@ class AuthTestCase(APITestCase):
         self.assertEqual(User.objects.filter(username='username1').count(), 1) #Comprobamos que se guarda el primer usuario
 
         #Creamos el segundo usuario(con el mismo username)
-        data2 = {'username': 'username1', 'first_name': 'first_name1', 'last_name': 'last_name2','email': 'email2@gmail.com','sex': 'MAN','location': 'location1','birth_date': '2018-01-28','password1': 'testnew2', 'password2': 'testnew2'}
+        data2 = {'username': 'username1', 'first_name': 'first_name1', 'last_name': 'last_name2','email': 'email2@gmail.com','sex': 'Man','location': 'location1','birth_date': '2018-01-28','password1': 'testnew2', 'password2': 'testnew2'}
         response = self.client.post('/authentication/createUser/', data, format='json')
         self.assertEqual(response.status_code, 200)
         form=FormSignUp(data2)
@@ -135,7 +135,7 @@ class AuthTestCase(APITestCase):
          
     def test_newUserPassDifferent(self):
         #Creamos el primer usuario
-        data = {'username': 'username1', 'first_name': 'first_name1', 'last_name': 'last_name1','email': 'email1@gmail.com','sex': 'MAN','location': 'location1','birth_date': '2018-01-28','password1': 'testneaaw1', 'password2': 'testnew1'}
+        data = {'username': 'username1', 'first_name': 'first_name1', 'last_name': 'last_name1','email': 'email1@gmail.com','sex': 'Man','location': 'location1','birth_date': '2018-01-28','password1': 'testneaaw1', 'password2': 'testnew1'}
         response = self.client.post('/authentication/createUser/', data, format='json')
         self.assertEqual(response.status_code, 200)
         form=FormSignUp(data)
