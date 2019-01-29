@@ -14,6 +14,9 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('sex', 'location', 'birth_date')
+        widgets = {
+            'birth_date': forms.TextInput(attrs={'placeholder': 'yyyy-mm-dd'}),
+        }
 
 
 #Formulario para crear nuevos usuarios
@@ -29,7 +32,7 @@ class FormSignUp(UserCreationForm):
     email = forms.EmailField(required=True)
     sex=forms.ChoiceField(choices=SEX_CHOICES)
     location = forms.CharField(max_length=140, required=False)
-    birth_date = forms.DateField (required=False)
+    birth_date = forms.DateField (required=False, widget=forms.TextInput(attrs={'placeholder': 'yyyy-mm-dd'}))
 
     class Meta:
         model = User
@@ -44,3 +47,6 @@ class FormSignUp(UserCreationForm):
             'password1',
             'password2',
         )
+        widgets = {
+            'birth_date': forms.TextInput(attrs={'placeholder': 'yyyy-mm-dd'}),
+        }

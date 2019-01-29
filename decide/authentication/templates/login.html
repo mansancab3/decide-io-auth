@@ -20,6 +20,14 @@
           Sign In With
         </span>
 
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-danger" role="alert">
+          {% for error in form.non_field_errors %}
+           {{ error }}
+          {% endfor %}
+        </div>
+        {% endfor %}
+
         <a href="/accounts/facebook/login/?process=login" class="btn-face m-b-20">
           <i class="fa fa-facebook-official"></i>
           Facebook
