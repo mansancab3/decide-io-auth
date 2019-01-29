@@ -1,0 +1,73 @@
+{% extends 'base_extend.html'%}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block body %}
+<!--form action="" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if messages %}
+  {% for message in messages %}
+  {{ message }}
+  {% endfor %}
+  {% endif %}
+  <input type="submit" name="submit">
+
+</form>
+-->
+
+
+</br>
+</br>
+<main class="my-form">
+  <div class="cotainer">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">Change Password</div>
+          <div class="card-body">
+            <form name="my-form" method="post">
+              {% csrf_token %}
+              <div class="form-group row">
+                <div class="col-md-6">
+                    {{ form.old_password|as_crispy_field }}
+                </div>
+                <div class="col-md-6">
+                    {{ form.new_password1|as_crispy_field }}
+                </div>
+                <div class="col-md-6">
+                    {{ form.new_password2|as_crispy_field }}
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="password2" class=" col-form-label text-md-right"></label>
+                <div class="col-md-6">
+
+                </div>
+              </div>
+              {% if messages %}
+              {% for message in messages %}
+              {{ message }}
+              {% endfor %}
+              {% endif %}
+              <div>
+                <button type="submit" class="login100-form-btn" style="width:20%;">
+                  Save Changes
+                </button>
+              </div>
+
+            </form>
+
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+{% endblock %}

@@ -1,7 +1,6 @@
 language: python 
 python: 
 - "3.6"
-- "2.7"
 - "3.5"
 services:
 - postgresql
@@ -18,8 +17,12 @@ before_script:
 - psql -c "create user decide with password 'decide'"
 - psql -c "create database decide owner decide"
 - python manage.py migrate
+
+- python manage.py loaddata data
+- python manage.py collectstatic --noinput
 script: 
-- python manage.py test
+- python manage.py test authentication
+
 addons:
   postgresql: "9.6"
   
