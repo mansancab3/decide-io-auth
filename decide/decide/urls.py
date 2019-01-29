@@ -30,6 +30,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('doc/', schema_view),
     url(r'^accounts/', include('allauth.urls')),
+    path('', IndexPage.as_view(),name='index'),
     path('index/', IndexPage.as_view(),name='index')
 
    #url(r'^facebook/', include('django_facebook.urls')),
