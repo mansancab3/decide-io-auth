@@ -48,18 +48,21 @@ class LogoutView(APIView):
 #--------------------------Anadido por Decide-IO-Auth -----------------------------------
 
 def EditUser(request):
-    if request.method == 'POST':
-        user_form = UserForm(request.POST, instance=request.user)
-        profile_form = ProfileForm(request.POST, instance=request.user.profile)
-        if user_form.is_valid() and profile_form.is_valid():
-        	user_form.save()
-        	profile_form.save()
-        	return HttpResponseRedirect('/index')
-    else:
-        user_form = UserForm(instance=request.user)
-        profile_form = ProfileForm(instance=request.user.profile)
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            user_form = UserForm(request.POST, instance=request.user)
+            profile_form = ProfileForm(request.POST, instance=request.user.profile)
+            if user_form.is_valid() and profile_form.is_valid():
+                user_form.save()
+                profile_form.save()
+                return HttpResponseRedirect('/index')
+        else:
+            user_form = UserForm(instance=request.user)
+            profile_form = ProfileForm(instance=request.user.profile)
 
-    return render(request, 'editUser.html', {"userForm":user_form,'profileForm': profile_form})
+        return render(request, 'editUser.html', {"userForm":user_form,'profileForm': profile_form})
+    else:
+        return HttpResponseRedirect('/')
 
 def ChangePassUser(request):
     if request.method == 'POST':
@@ -67,10 +70,10 @@ def ChangePassUser(request):
         if form.is_valid():
             user = form.save()
             update_session_auth_hash(request, user)
-            messages.success(request, 'Su password se ha modificado correctamente')
+            messages.success(request, 'Your password has been modified correctly')
             return redirect('/index')
         else:
-            messages.error(request, 'Ha ocurrido un error a la hora de cambiar la password, por favor reviselo')
+            messages.error(request, 'An error occurred when changing the password, please check it')
     else:
         form = PasswordChangeForm(request.user)
     return render(request, 'changePassUser.html', {'form': form})

@@ -12,6 +12,12 @@
   <button type="submit">Login</button>
 </form-->
 
+{% if user.is_authenticated %}
+    <script>
+    location.href="/"
+    </script>
+{%endif%}
+
   <div class="container-login100">
     <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
       <form class="login100-form validate-form flex-sb flex-w" method="post">
@@ -19,6 +25,14 @@
         <span class="login100-form-title p-b-53">
           Sign In With
         </span>
+
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-danger" role="alert">
+          {% for error in form.non_field_errors %}
+           {{ error }}
+          {% endfor %}
+        </div>
+        {% endfor %}
 
         <a href="/accounts/facebook/login/?process=login" class="btn-face m-b-20">
           <i class="fa fa-facebook-official"></i>
