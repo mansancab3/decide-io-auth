@@ -70,10 +70,10 @@ def ChangePassUser(request):
         if form.is_valid():
             user = form.save()
             update_session_auth_hash(request, user)
-            messages.success(request, 'Su password se ha modificado correctamente')
+            messages.success(request, 'Your password has been modified correctly')
             return redirect('/index')
         else:
-            messages.error(request, 'Ha ocurrido un error a la hora de cambiar la password, por favor reviselo')
+            messages.error(request, 'An error occurred when changing the password, please check it')
     else:
         form = PasswordChangeForm(request.user)
     return render(request, 'changePassUser.html', {'form': form})
