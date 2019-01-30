@@ -105,7 +105,7 @@ def CreateUser(request):
 
                 #Se manda correo para informar de que se ha registrado en Decide
                 email = form.cleaned_data.get('email')
-                send_mail('Record app Decide','Successfully registered in the Decide-IO application. From now on you can vote in all our votes. If you have not registered, contact the email that sent you this message','decideioauth@hotmail.com',[email])
+                send_mail('Record app Decide','Successfully registered in the Decide-IO application. From now on you can vote in all our votes. If you have not registered, contact the email that sent you this message','decideio@hotmail.com',[email])
                 ################################################################
 
                 password = form.cleaned_data.get('password1')
