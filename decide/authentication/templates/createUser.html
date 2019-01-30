@@ -18,6 +18,12 @@
 
     </form-->
 
+{% if user.is_authenticated %}
+  <script>
+  location.href="/"
+  </script>
+{%endif%}
+
 </br></br><br></br>
 
 <main class="my-form">

@@ -48,18 +48,21 @@ class LogoutView(APIView):
 #--------------------------Anadido por Decide-IO-Auth -----------------------------------
 
 def EditUser(request):
-    if request.method == 'POST':
-        user_form = UserForm(request.POST, instance=request.user)
-        profile_form = ProfileForm(request.POST, instance=request.user.profile)
-        if user_form.is_valid() and profile_form.is_valid():
-        	user_form.save()
-        	profile_form.save()
-        	return HttpResponseRedirect('/index')
-    else:
-        user_form = UserForm(instance=request.user)
-        profile_form = ProfileForm(instance=request.user.profile)
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            user_form = UserForm(request.POST, instance=request.user)
+            profile_form = ProfileForm(request.POST, instance=request.user.profile)
+            if user_form.is_valid() and profile_form.is_valid():
+                user_form.save()
+                profile_form.save()
+                return HttpResponseRedirect('/index')
+        else:
+            user_form = UserForm(instance=request.user)
+            profile_form = ProfileForm(instance=request.user.profile)
 
-    return render(request, 'editUser.html', {"userForm":user_form,'profileForm': profile_form})
+        return render(request, 'editUser.html', {"userForm":user_form,'profileForm': profile_form})
+    else:
+        return HttpResponseRedirect('/')
 
 def ChangePassUser(request):
     if request.method == 'POST':

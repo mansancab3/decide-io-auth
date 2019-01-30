@@ -12,6 +12,12 @@
   <button type="submit">Login</button>
 </form-->
 
+{% if user.is_authenticated %}
+    <script>
+    location.href="/"
+    </script>
+{%endif%}
+
   <div class="container-login100">
     <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
       <form class="login100-form validate-form flex-sb flex-w" method="post">
