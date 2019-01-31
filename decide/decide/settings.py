@@ -286,7 +286,7 @@ django_heroku.settings(locals())
 
 #Variables necesarias para que mande correo de confirmacion
 EMAIL_HOST='smtp.live.com'
-EMAIL_HOST_USER= 'decideioauth@hotmail.com'
+EMAIL_HOST_USER= 'decideio@hotmail.com'
 EMAIL_HOST_PASSWORD= 'pepibami1'
 EMAIL_PORT= 587
 EMAIL_USE_TLS= True
